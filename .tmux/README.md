@@ -13,7 +13,7 @@ To run the configuration
 
 ```bash
 cd
-git clone 
+git clone https://github.com/ritikjain51/dotfiles
 ln -s "${pwd}/.tmux/.tmux.conf" ".tmux.conf"
 cp "/.tmux/.tmux.conf.local" .
 ```
@@ -21,7 +21,7 @@ cp "/.tmux/.tmux.conf.local" .
 💡 You can clone the repository anywhere you want, provided you create the proper ~/.tmux.conf symlink and you copy the .tmux.conf.local sample file in your home directory:
 
 ```bash
-$ git clone https://github.com/gpakosz/.tmux.git /path/to/oh-my-tmux
+$ git clone https://github.com/ritikjain51/dotfiles /path/to/oh-my-tmux
 $ ln -s -f /path/to/oh-my-tmux/.tmux.conf ~/.tmux.conf
 $ cp /path/to/oh-my-tmux/.tmux.conf.local ~/.tmux.conf.local
 ```
@@ -35,41 +35,46 @@ tmux may be controlled from an attached client by using a key combination of a p
 key, followed by a command key. This configuration uses C-a as a secondary prefix 
 while keeping C-b as the default prefix. In the following list of key bindings:
 
-- ```<prefix>``` can either be ```C-a``` or ```C-b```
-- ```<prefix>``` d means hitting ```C-a``` or ```C-b``` followed by ```d```
-- ```<prefix>``` C-d means hitting ```C-a``` or ```C-b``` followed by ```Ctrl-d```
+- `<prefix>` can either be `C-a` or `C-b`
+- `<prefix>` d means hitting `C-a` or `C-b` followed by `d`
+- `<prefix>` C-d means hitting `C-a` or `C-b` followed by `Ctrl-d`
 
 
 ### Binding Table 
 
 |Key Binding | Description|
 |------------|------------|
-|```<prefix>``` e | opens ~/.tmux.conf.local with the editor defined in Environment Variable default $vim$ will be used|
-|```<prefix>``` r |Reload the configuraion (./.tmux.conf)|
-|```<prefix>``` R |Redraw the client if interrupted by wall|
-|```<prefix>``` C-c | Starts a new session|
-|```<prefix>``` C-f | Find for the session and attach|
-|```<prefix>``` - | Create a vertical pane|
-|```<prefix>``` _ | Create a horizontal pane|
-|```<prefix>```  w / ```<prefix>``` C-w| Destroy current pane|
-|```<prefix>``` q / ```<prefix> ``` C-q| Destroy current session|
-|```<prefix>``` h| Move to left Pane |
-|```<prefix>``` j| Move to down pane|
-|```<prefix>``` l| Move to right pane|
-|```<prefix>``` k| Move to up pane|
-|```<prefix>``` <| Swap current pane with the next one|
-|```<prefix>``` >| Swap current pane with the previous one|
-|```<prefix>``` H| Resize pane to left side|
-|```<prefix>``` J| Resize pane to down side|
-|```<prefix>``` K| Resize pane to up side|
-|```<prefix>``` L| Resize pane to right size|
-|```<prefix>``` F| Facebook Pathpicker|
-|```<prefix>``` U| URL View|
+|`<prefix>` e | opens ~/.tmux.conf.local with the editor defined in Environment Variable default $vim$ will be used|
+|`<prefix>` r |Reload the configuraion (./.tmux.conf)|
+|`<prefix>` R |Redraw the client if interrupted by wall|
+|`<prefix>` C-c | Starts a new session|
+|`<prefix>` C-f | Find for the session and attach|
+|`<prefix>` - | Create a vertical pane|
+|`<prefix>` _ | Create a horizontal pane|
+|`<prefix>`  w / `<prefix>` C-w| Destroy current pane|
+|`<prefix>` q / `<prefix> ` C-q| Destroy current session|
+|`<prefix>` h| Move to left Pane |
+|`<prefix>` j| Move to down pane|
+|`<prefix>` l| Move to right pane|
+|`<prefix>` k| Move to up pane|
+|`<prefix>` <| Swap current pane with the next one|
+|`<prefix>` >| Swap current pane with the previous one|
+|`<prefix>` H| Resize pane to left side|
+|`<prefix>` J| Resize pane to down side|
+|`<prefix>` K| Resize pane to up side|
+|`<prefix>` L| Resize pane to right size|
+|`<prefix>` F| Facebook Pathpicker|
+|`<prefix>` U| URL View|
+|`<prefix>` C-h | Select previos Window|
+|`<prefix>` C-l | Select next window |
+|`<prefix>` $ | Rename session name|
+|`<prefix>` , | Rename window name|
+
 
 
 Additionally, `copy-mode-vi` matches [my own Vim configuration][]
 
-[my own Vim configuration]: https://github.com/gpakosz/.vim.git
+[my own Vim configuration]: https://github.com/ritikjain51/dotfiles
 
 Bindings for `copy-mode-vi`:
 
@@ -111,9 +116,9 @@ To make use of these symbols, there are several options:
   screenshot of iTerm2 configured to use `PowerlineSymbols.otf`
   ![iTerm2 + Powerline font](https://user-images.githubusercontent.com/553208/62243890-8232f500-b3de-11e9-9b8c-51a5d38bdaa8.png)
 
-[source code pro]: https://github.com/adobe-fonts/source-code-pro/releases/tag/2.030R-ro/1.050R-it
-[powerline patched fonts]: https://github.com/powerline/fonts
-[powerline font]: https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf
+[source code pro]: https://github.com/ritikjain51/dotfiles
+[powerline patched fonts]: https://github.com/ritikjain51/dotfiles
+[powerline font]: https://github.com/ritikjain51/dotfiles
 [terminal support]: http://powerline.readthedocs.io/en/master/usage.html#usage-terminal-emulators
 [Powerline manual]: http://powerline.readthedocs.org/en/latest/installation.html#fonts-installation
 
@@ -166,15 +171,15 @@ Beside custom variables mentioned above, the `tmux_conf_theme_status_left` and
 `tmux_conf_theme_status_right` variables support usual tmux syntax, e.g. using
 `#()` to call an external command that inserts weather information provided by
 [wttr.in]:
-```
+`
 tmux_conf_theme_status_right='#{prefix}#{pairing}#{synchronized} #(curl -m 1 wttr.in?format=3 2>/dev/null; sleep 900) , %R , %d %b | #{username}#{root} | #{hostname} '
-```
+`
 The `sleep 900` call makes sure the network request is issued at most every 15
 minutes whatever the value of `status-interval`.
 
 ![Weather information from wttr.in](https://user-images.githubusercontent.com/553208/52175490-07797c00-27a5-11e9-9fb6-42eec4fe4188.png)
 
-[wttr.in]: https://github.com/chubin/wttr.in#one-line-output
+[wttr.in]: https://github.com/ritikjain51/dotfiles
 
 💡 You can also define your own custom variables. See the sample
 `.tmux.conf.local` file for instructions.
@@ -183,9 +188,9 @@ Finally, remember `tmux_conf_theme_status_left` and
 `tmux_conf_theme_status_right` end up being given to tmux as `status-left` and
 `status-right` which means they're passed through `strftime()`. As such, the `%`
 character has a special meaning and needs to be escaped by doubling it, e.g.
-```
+`
 tmux_conf_theme_status_right='#(echo foo %% bar)'
-```
+`
 See `man 3 strftime`.
 
 ### Using TPM plugins
